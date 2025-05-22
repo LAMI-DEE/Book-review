@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs"); %>
+
+<h2>Latest Book Reviews</h2>
+<div class="book-list">
+    <% if (books.length === 0) { %>
+        <p>No reviewed book yet.</p>
+    <% } else{ %>
+    <div class="grid-container1">
+    <% books.forEach(book => { %>
+        <div class="book-card">
+            <img src="<%= book.cover_url %>" alt="<%= book.title %>">
+            <h3><%= book.title %></h3>
+            <p><%= book.author %></p>
+            <a class="review-kno" href="/review-by-key?key=<%= book.openlibrary_key %>">Read Review</a>
+        </div>
+     <% }) %>
+    </div>
+    <% } %>
+</div>
+
+<%- include("partials/footer.ejs"); %>

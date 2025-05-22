@@ -1,0 +1,14 @@
+<%- include("partials/header.ejs"); %>
+
+<h2><%= formTitle %></h2>
+<form class="form" action=" <%= formAction %>" method="post">
+    <label for="rating">Rating (1-5):</label>
+    <input type="number" name="rating" min="1" max="5" required value="<%= rating || '' %>" placeholder="<%= error && error.includes('Rating') ? error : '' %>" %>";
+     %>">
+    <label for="review_text">Your Review:</label>
+    <textarea name="content" rows="5" maxlength="800" required><%= content || '' %></textarea>
+ 
+    <button type="submit">Submit</button>
+</form>
+
+<%- include ("partials/footer.ejs") %>

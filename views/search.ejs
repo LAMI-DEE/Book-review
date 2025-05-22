@@ -1,0 +1,19 @@
+<%- include("partials/header.ejs"); %>
+
+<h2>Search Results for <%= query %> :</h2>
+<div class="book-list">
+    <div class="grid-container">
+     <% books.forEach(book => { %>
+        <div class="book-card">
+            <img src="<%= book.cover_url %>" alt="<%= book.title %>">
+            <h3><%= book.title %></h3>
+            <p><%= book.author %></p>
+            <a class="review-kno"  href="<%= book.reviewUrl %>">
+                 <%= book.isReviewed ? "Read Review" : "Write Review" %>
+            </a>
+        </div>
+    <% }) %>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs"); %>

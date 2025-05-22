@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs"); %>
+
+<h2>All Reviewed Books</h2>
+<div class="book-list">
+    <% if (books.length === 0) { %>
+        <p>No reviewed book yet.</p>
+    <% } else{ %>
+    <div class="grid-container">
+    <% books. forEach(book => { %>
+        <div class="book-card">
+            <img src="<%= book.cover_url %>" alt="<%= book.title %>">
+            <h3><%= book.title %></h3>
+            <p><%= book.author %></p>
+            <a class="review-kno" href="/review-by-key?key=<%= book.openlibrary_key %>">Read Review</a>
+            <a class="edit-btn" href="/edit-review?key=<%= book.openlibrary_key %>">Edit</a>
+        </div>
+    <% }) %>
+    </div>
+    <% } %>
+</div>
+<div class="pagination">
+    <% if (currentPage > 1){ %><a href="/reviewed?page=<%= currentPage - 1 %>">Previous</a><% } %>
+    <% if (currentPage < totalPages){ %><a href="/reviewed?page=<%= currentPage + 1 %>">Next</a><% } %>
+</div>
+
+<%- include("partials/footer.ejs"); %>

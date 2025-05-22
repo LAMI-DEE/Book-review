@@ -1,0 +1,34 @@
+<%- include("partials/header.ejs"); %>
+
+<h2>Review for "<%= book.title %>"</h2>
+
+<div class="read-review-container">
+    <div class="book-image">
+        <img src="<%= book.cover_url %>" alt="<%= book.title %>">
+    </div>
+
+    <div class="review-content">
+        <h3><%= book.title %></h3>
+        <p><strong>Author:</strong><%= book.author %></p>
+        <p><strong>Rating:</strong>
+            <% for (let i = 1; i <= 5; i++) { %>
+                <% if (i <= book.rating) { %>
+                    ★
+                <% } else { %>
+                    ☆
+                 <% } %>
+            <% } %>
+        </p>
+        <p class="review-text"><%= review.content %></p>
+        <div class="review-timestamp">
+            <p>Created: <%= new Date(review.created_at).toLocaleString() %></p>
+                <% if (review.created_at !== review.updated_at) { %>
+            <p>Updated: <%= new Date(review.updated_at).toLocaleString() %></p>
+            <% } %>
+        </div>
+        <a href="/edit-review?key=<%= book.openlibrary_key %>" class="edit-bt">Edit Review</a>
+        <a href="/delete-review?key=<%= book.openlibrary_key %>" class="delete-bt" onclick="return confirm ('Are you sure you want to delete review')">Delete Review</a>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs"); %>
