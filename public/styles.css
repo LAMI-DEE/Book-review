@@ -273,3 +273,96 @@ footer{
     left: 0;
     width: 100%;
 }
+
+@media (max-width: 1023px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin-right: 0;
+    margin-top: 1rem;
+  }
+
+  .search-form {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .grid-container,
+  .grid-container1 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .read-review-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    margin-bottom: 7rem;
+  }
+
+  .review-content {
+    max-width: 100%;
+  }
+  .book-list{
+    margin-bottom: 5rem
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    padding: 1em;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-form {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+  .search-form input{
+    max-width: 40%;
+  }
+   .search-form button {
+    max-width: 25%;
+   }
+
+  .search-form input,
+  .search-form button {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .grid-container,
+  .grid-container1 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .book-card {
+    max-width: 100%;
+  }
+
+  .read-review-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .book-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
